@@ -1,9 +1,7 @@
 Structure: Ducks
 
-Models: 
- 
-
-  - User:
+Models:
+  - Student:
 
     Slice:
       - name: string
@@ -11,10 +9,21 @@ Models:
       - address: string
 
     Thunks:
-    - getNames:
-      - /api/names
-      - getNames
+      - getName:
+          - /api/name
+          - getName
 
+  - Campus:
+
+    Slice:
+      - name: string
+      - phone: number
+      - address: string
+
+    Thunks:
+      - getCampus:
+          - /api/campus
+          - getCampus
 # Want to edit this file?
 # Be careful! Make sure that models and properties always have a
 # space between the dash and the name. Major fields
@@ -25,8 +34,8 @@ Models:
 #
 # Structure: Ducks
 #
-# Models: 
-# 
+# Models:
+#
 # - Ducks:
 #
 #      - feathers: number
