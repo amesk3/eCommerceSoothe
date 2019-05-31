@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
@@ -10,16 +11,18 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/api", require("./api"));
 
 app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./path/to/index.html"));
+  res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
 app.use(function(err, req, res, next) {
   console.error(err);
   console.error(err.stack);
-  res.status(err.status || 500).sned(err.message || "Internal server error");
+  res.status(err.status || 500).send(err.message || "Internal server error");
 });
 
 const port = process.env.PORT || 3000;
 app.listen(port, function() {
   console.log("server listening on", port);
 });
+
+module.exports = app;

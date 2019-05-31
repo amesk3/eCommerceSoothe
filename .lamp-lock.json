@@ -1,0 +1,27 @@
+{
+	"Structure": "Ducks",
+	"Models": [
+		{
+			"User": null,
+			"Slice": [
+				{
+					"name": "string"
+				},
+				{
+					"phone": "number"
+				},
+				{
+					"address": "string"
+				}
+			],
+			"Thunks": [
+				{
+					"getNames": [
+						"/api/names",
+						"getNames"
+					]
+				}
+			]
+		}
+	]
+}
