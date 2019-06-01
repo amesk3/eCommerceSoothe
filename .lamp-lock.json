@@ -2,7 +2,7 @@
 	"Structure": "Ducks",
 	"Models": [
 		{
-			"User": null,
+			"Student": null,
 			"Slice": [
 				{
 					"name": "string"
@@ -16,9 +16,31 @@
 			],
 			"Thunks": [
 				{
-					"getNames": [
-						"/api/names",
-						"getNames"
+					"getName": [
+						"/api/name",
+						"getName"
+					]
+				}
+			]
+		},
+		{
+			"Campus": null,
+			"Slice": [
+				{
+					"name": "string"
+				},
+				{
+					"phone": "number"
+				},
+				{
+					"address": "string"
+				}
+			],
+			"Thunks": [
+				{
+					"getCampus": [
+						"/api/campus",
+						"getCampus"
 					]
 				}
 			]
