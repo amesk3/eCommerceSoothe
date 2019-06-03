@@ -15,7 +15,7 @@ const Campus = require("./Campus");
 //
 // Puppy.belongsTo(Owner)
 
-Student.belongsTo(Campus, { as: "Campus" });
+Student.belongsTo(Campus, { as: "CampusId" });
 Campus.hasMany(Student);
 
 /**

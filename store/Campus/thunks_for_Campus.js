@@ -1,15 +1,14 @@
-import actions from "./actions_for_Campus"
+import { getAllCampus } from "./actions_for_Campus";
+import axios from "axios";
 
-export const getCampus = () => dispatch => {
- 
-  return fetch('/api/campus')
-      .then((resp) => resp.json()) 
-      .then(function( {data} ) {
- 
-          dispatch(actions.getCampus(data))
-  });
+export const getCampuses = () => {
+  console.log("hitting THUNK");
+  return async dispatch => {
+    const { data } = await axios.get("/api/campuses");
+    dispatch(getAllCampus(data));
+  };
 };
 
 export default {
-	getCampus,
-}
+  getCampuses
+};

@@ -2,18 +2,10 @@ const router = require("express").Router();
 const Campus = require("../db/models/Campus");
 const Student = require("../db/models/Student");
 
-router.use("/users", require("./users"));
-
-module.exports = router;
-
-router.use(function(req, res, next) {
-  const err = new Error("Not found");
-  err.status = 404;
-  next(err);
-});
-
 //GET ALL
 router.get("/campuses", async (req, res, next) => {
+  console.log("get all working");
+
   try {
     const campuses = await Campus.findAll();
     res.send(campuses);
@@ -65,3 +57,11 @@ router.delete("/campuses/:id", async (req, res, next) => {
     next(err);
   }
 });
+
+router.use(function(req, res, next) {
+  const err = new Error("Not found");
+  err.status = 404;
+  next(err);
+});
+
+module.exports = router;

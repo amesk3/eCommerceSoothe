@@ -2,14 +2,14 @@ const Sequelize = require("sequelize");
 const db = require("./db");
 
 module.exports = db.define("Campus", {
-  name: {
+  Name: {
     type: Sequelize.STRING,
     allowNull: false,
     validate: {
-      notEmpty
+      notEmpty: true
     }
   },
-  address: {
+  Address: {
     type: Sequelize.STRING,
     validate: {
       notEmpty: true
