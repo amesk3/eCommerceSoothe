@@ -1,67 +1,25 @@
-const router = require("express").Router();
-const Campus = require("../db/models/Campus");
-const Student = require("../db/models/Student");
+const router = require('express').Router()
+// const User = require('../db/models/user')
+module.exports = router
 
-//GET ALL
-router.get("/campuses", async (req, res, next) => {
-  console.log("get all working");
+router.use('/users', require('./users'))
+router.use('/products', require('./products'))
+router.use('/orders', require('./orders'))
+router.use('/productorder', require('./product-order'))
 
-  try {
-    const campuses = await Campus.findAll();
-    res.send(campuses);
-  } catch (err) {
-    next(err);
-  }
-});
+router.use((req, res, next) => {
+  const error = new Error('Not Found')
+  error.status = 404
+  next(error)
+})
 
-//GET BY ID
-router.get("/campuses/:id", async (req, res, next) => {
-  try {
-    const campusId = await Campus.findById(req.params.id);
-    res.send(campusId);
-  } catch (err) {
-    next(err);
-  }
-});
-
-//CREATE NEW
-router.post("/campuses", async (req, res, next) => {
-  try {
-    const newCampus = await Campus.create(req.body);
-    res.json(newCampus);
-  } catch (err) {
-    next(err);
-  }
-});
-
-//UPDATE
-router.put("/campuses/:id", async (req, res, next) => {
-  try {
-    let updatedCampus = await Campus.findById(req.params.id);
-    updatedCampus = updatedCampus.update(req.body);
-    res.json(updatedCampus);
-  } catch (err) {
-    next(err);
-  }
-});
-
-//DELETE
-router.delete("/campuses/:id", async (req, res, next) => {
-  try {
-    const deletedCampus = await Campus.findOne({
-      where: { id: req.params.id }
-    });
-    await deletedCampus.destroy();
-    res.send(deletedCampus);
-  } catch (err) {
-    next(err);
-  }
-});
-
-router.use(function(req, res, next) {
-  const err = new Error("Not found");
-  err.status = 404;
-  next(err);
-});
-
-module.exports = router;
+//middleware to check if a person is logged in before loading orders/cart
+// function loggedIn(req, res, next) {
+//   const userId = req.params.id
+//   const matchingUser = User.findOne({where: {userId: req.user.id}})
+//   if (matchingUser) {
+//     return next()
+//   } else {
+//     res.redirect('/')
+//   }
+// }

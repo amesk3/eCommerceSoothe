@@ -1,22 +1,21 @@
-const db = require("./db");
-const Student = require("./Student");
-const Campus = require("./Campus");
+const User = require('./user')
+const Product = require('./product')
+// const Transaction = require('./transactions')
+const Order = require('./order')
+const ProductOrder = require('./product-order')
 
-// The purpose of this module is to bring your Sequelize instance (`db`) together
-// with your models (which you should define in separate modules in this directory).
-// Example:
-//
-// const Puppy = require('./puppy')
-// const Owner = require('./owner')
+/**
+ * If we had any associations to make, this would be a great place to put them!
+ * ex. if we had another model called BlogPost, we might say:
+ *
+ *    BlogPost.belongsTo(User)
+ */
 
-// After you've required all of your models into this module, you should establish
-// associations (https://sequelize-guides.netlify.com/association-types/) between them here as well!
-// Example:
-//
-// Puppy.belongsTo(Owner)
-
-Student.belongsTo(Campus, { as: "CampusId" });
-Campus.hasMany(Student);
+Order.belongsTo(User)
+User.hasMany(Order)
+Product.belongsToMany(Order, {through: ProductOrder})
+Order.belongsToMany(Product, {through: ProductOrder})
+ProductOrder.belongsTo(Product)
 
 /**
  * We'll export all of our models here, so that any time a module needs a model,
@@ -24,12 +23,9 @@ Campus.hasMany(Student);
  * for example, we can say: const {User} = require('../db/models')
  * instead of: const User = require('../db/models/user')
  */
-
-// register models
-require("./models");
-
 module.exports = {
-  db,
-  Campus,
-  Student
-};
+  User,
+  Product,
+  ProductOrder,
+  Order
+}
