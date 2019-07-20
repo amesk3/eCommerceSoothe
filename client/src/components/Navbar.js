@@ -2,24 +2,43 @@ import React from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
-import InputBase from "@material-ui/core/InputBase";
-import { fade, makeStyles } from "@material-ui/core/styles";
-import MenuIcon from "@material-ui/icons/Menu";
-import SearchIcon from "@material-ui/icons/Search";
+import { makeStyles } from "@material-ui/core/styles";
+import Menu from "@material-ui/icons/Menu";
 
-const Navbar = () => {
+const useStyles = makeStyles(theme => ({
+  root: {
+    flexGrow: 10
+  },
+  menuButton: {
+    marginRight: theme.spacing(2)
+  },
+  title: {
+    flexGrow: 10
+  }
+}));
+
+export default function Navbar() {
+  const classes = useStyles();
   return (
-    <div>
+    <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="title" color="inherit">
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="menu"
+          >
+            <Menu />
+          </IconButton>
+          <Typography variant="h6" className={classes.title}>
             Soothe
           </Typography>
+          <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
     </div>
   );
-};
-
-export default Navbar;
+}
