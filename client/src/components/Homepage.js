@@ -9,21 +9,21 @@ const HomePage = () => {
       </div>
       <div className="homeCategories">
         <div>
-          <Link to="/cakes">
-            <img src="/images/Maracaibo.png" />
-            <p>Cakes</p>
+          <Link to="/chocolate">
+            <img src="/images/chocolate.jpg" width="300" height="300" />
+            <p>Chocolate</p>
           </Link>
         </div>
         <div>
-          <Link to="/pastries">
-            <img src="/images/brioche suisse (1).png" />
-            <p>Pastries</p>
+          <Link to="/candles">
+            <img src="/images/candle.jpg" width="300" height="300" />
+            <p>Candles</p>
           </Link>
         </div>
         <div>
-          <Link to="cookies">
-            <img src="/images/cookies.png" />
-            <p>Cookies</p>
+          <Link to="/crystals">
+            <img src="/images/healingcrystals.jpg" width="300" height="300" />
+            <p>Crystals</p>
           </Link>
         </div>
       </div>

@@ -15,6 +15,7 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
+import { Link } from "react-router-dom";
 
 const drawerWidth = 300;
 
@@ -134,19 +135,23 @@ export default function PersistentDrawerLeft() {
         </div>
         <Divider />
         <List>
-          {["About", "What is self-care"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{"+"}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
+          {["about", "what is self-care"].map((text, index) => (
+            <Link to={`/${text}`}>
+              <ListItem button key={text}>
+                <ListItemIcon>{"+"}</ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItem>
+            </Link>
           ))}
         </List>
         <List>
-          {["Chocolate", "Candles/Incense", "Crystals"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{"+"}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
+          {["chocolate", "candles", "crystals"].map((text, index) => (
+            <Link to={`/${text}`}>
+              <ListItem button key={text}>
+                <ListItemIcon>{"+"}</ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItem>
+            </Link>
           ))}
         </List>
         <Divider />

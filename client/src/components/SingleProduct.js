@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchOneProduct } from "../store/productsReducer";
 import { addProductToCart } from "../store/userReducer";
-import ProductPreview from "./productPreview";
+import ProductPreview from "./ProductPreview.js";
 
 class SingleProduct extends Component {
   constructor(props) {

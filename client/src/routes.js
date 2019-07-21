@@ -1,8 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { withRouter, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  withRouter,
+  Route,
+  Switch
+} from "react-router-dom";
 import PropTypes from "prop-types";
-import { HomePage, SingleProduct } from "./components";
+// import { Homepage, SingleProduct } from "./components";
+import Homepage from "./components/Homepage";
+import SingleProduct from "./components/SingleProduct";
 
 import { me } from "./store";
 
@@ -24,25 +31,25 @@ class Routes extends Component {
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
-        <Route exact path="/" component={HomePage} />
+        <Route exact path="/" component={Homepage} />
 
         <Route
           exact
-          path="/cakes"
-          render={() => <ListView category="cakes" />}
+          path="/chocolate"
+          render={() => <ListView category="chocolate" />}
         />
-        <Route path="/cakes/:id" component={SingleProduct} />
+        <Route path="/chocolate/:id" component={SingleProduct} />
         <Route
           exact
-          path="/cookies"
-          render={() => <ListView category="cookies" />}
+          path="/candles"
+          render={() => <ListView category="candles" />}
         />
-        <Route path="/cookies/:id" component={SingleProduct} />
+        <Route path="/candles/:id" component={SingleProduct} />
 
         <Route
           exact
-          path="/pastries"
-          render={() => <ListView category="pastries" />}
+          path="/crystals"
+          render={() => <ListView category="crystals" />}
         />
         <Route path="/pastries/:id" component={SingleProduct} />
 
