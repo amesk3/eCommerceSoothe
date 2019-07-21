@@ -35,7 +35,7 @@ async function seed() {
       price: 2,
       description: "lavender",
       inventory: 12,
-      image: "/image/candle.jpg"
+      image: "/images/candle.jpg"
     },
     {
       name: "lovely candle",
@@ -43,7 +43,7 @@ async function seed() {
       price: 1.5,
       description: "roses",
       inventory: 12,
-      image: "/image/candle.jpg"
+      image: "/images/candle.jpg"
     },
     {
       name: "dark as abyss chocolate",
@@ -51,7 +51,7 @@ async function seed() {
       price: 4,
       description: "yum",
       inventory: 12,
-      image: "/image/chocolate.jpg"
+      image: "/images/chocolate.jpg"
     },
     {
       name: "wish crystal",

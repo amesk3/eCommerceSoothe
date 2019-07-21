@@ -23,14 +23,21 @@ export class ListView extends Component {
         </div>
       );
     }
-
+    const imgStyle = {
+      width: "300px",
+      height: "300px"
+    };
     return (
       <div>
         <h2 id="categoryTitle">Our {this.props.category}</h2>
         <div className="parentCategory">
           {this.props.products.map(product => (
             <div className="one_category" key={product.id}>
-              <img className="imageProduct" src={product.image} />
+              <img
+                className="imageProduct"
+                src={product.image}
+                style={imgStyle}
+              />
               <p className="nameProduct">{product.name}</p>
               <p className="priceProduct">{product.price} $</p>
               <Link

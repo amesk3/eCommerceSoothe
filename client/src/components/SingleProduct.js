@@ -75,7 +75,7 @@ class SingleProduct extends Component {
 
   render() {
     return (
-      <div>
+      <div id="singleProduct">
         <ProductPreview
           state={this.state}
           selectedProduct={this.props.selectedProduct}

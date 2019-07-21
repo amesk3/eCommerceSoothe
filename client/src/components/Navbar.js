@@ -135,6 +135,17 @@ export default function PersistentDrawerLeft() {
         </div>
         <Divider />
         <List>
+          {
+            <Link to={`/`}>
+              <ListItem button key={"home"}>
+                <ListItemIcon>{"+"}</ListItemIcon>
+                <ListItemText primary={"home"} />
+              </ListItem>
+            </Link>
+          }
+        </List>
+        <List />
+        <List>
           {["about", "what is self-care"].map((text, index) => (
             <Link to={`/${text}`}>
               <ListItem button key={text}>

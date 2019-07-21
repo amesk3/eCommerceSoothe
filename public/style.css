@@ -54,3 +54,8 @@ a:hover {
   color: Black;
   /* border-bottom: 1px solid Black; */
 }
+
+#singleProduct {
+  width: 300px;
+  height: 300px;
+}
