@@ -8,7 +8,7 @@
     "build": "webpack --mode production",
     "start-server": "nodemon server -e html,js,scss --ignore public --ignore client",
     "start-dev": "NODE_ENV='development' npm run build-client-watch & NODE_ENV='development' npm run start-server",
-    "seed": "node seed.js"
+    "seed": "node ./script/seed.js"
   },
   "author": "Amy Kim",
   "license": "MIT",

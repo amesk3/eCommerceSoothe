@@ -1,109 +1,83 @@
-'use strict'
+"use strict";
 
-const db = require('../server/db')
-const {User, Product, Order, ProductOrder} = require('../server/db/models')
+const db = require("../server/db");
+const { User, Product, Order, ProductOrder } = require("../server/db/models");
 
 async function seed() {
-  await db.sync({force: true})
-  console.log('db synced!')
+  await db.sync({ force: true });
+  console.log("db synced!");
 
   const users = [
     {
-      firstName: 'cody',
-      lastName: 'smith',
-      email: 'cody@email.com',
-      password: '123',
-      shippingAddress: '5 hannover sq New York City, NY 10000',
-      billingAddress: '5 hannover sq New York City, NY 10000',
+      firstName: "cody",
+      lastName: "smith",
+      email: "cody@email.com",
+      password: "123",
+      shippingAddress: "5 hannover sq New York City, NY 10000",
+      billingAddress: "5 hannover sq New York City, NY 10000",
       isAdmin: false
     },
     {
-      firstName: 'emmy',
-      lastName: 'panken',
-      email: 'murphy@email.com',
-      password: '123',
-      shippingAddress: '5 hannover sq New York City, NY 10000',
-      billingAddress: '5 hannover sq New York City, NY 10000',
+      firstName: "emmy",
+      lastName: "panken",
+      email: "murphy@email.com",
+      password: "123",
+      shippingAddress: "5 hannover sq New York City, NY 10000",
+      billingAddress: "5 hannover sq New York City, NY 10000",
       isAdmin: false
     }
-  ]
+  ];
 
   const products = [
     {
-      name: 'CHOC CHIP COOKIE',
-      category: 'cookies',
+      name: "chill candle",
+      category: "candles",
       price: 2,
-      description: 'yum',
+      description: "lavender",
       inventory: 12,
-      image:
-        'https://bwog.com/wp-content/uploads/2012/12/shutterstock_63002695.jpg'
+      image: "/image/candle.jpg"
     },
     {
-      name: 'PEANUT BUTTER COOKIE',
-      category: 'cookies',
+      name: "lovely candle",
+      category: "candles",
       price: 1.5,
-      description: 'yum',
+      description: "roses",
       inventory: 12,
-      image:
-        'https://bwog.com/wp-content/uploads/2012/12/shutterstock_63002695.jpg'
+      image: "/image/candle.jpg"
     },
     {
-      name: 'MILLE FEUILLES',
-      category: 'cakes',
+      name: "dark as abyss chocolate",
+      category: "chocolate",
       price: 4,
-      description: 'yum',
+      description: "yum",
       inventory: 12,
-      image: '/images/mille_feuille_patissier_bondu_paviot_1_928d.png'
+      image: "/image/chocolate.jpg"
     },
     {
-      name: 'CROISSANT',
-      category: 'pastries',
+      name: "wish crystal",
+      category: "crystals",
       price: 1,
-      description: 'yum',
+      description: "ooh-la-la",
       inventory: 30,
-      image: '/images/Croissant.png'
+      image: "/images/healingcrystals.jpg"
     },
     {
-      name: 'PAIN AU CHOCOLAT',
-      category: 'pastries',
+      name: "love and joy crystal",
+      category: "crystals",
       price: 1.3,
-      description: 'yum',
+      description: "magical",
       inventory: 30,
-      image: '/images/images-q=tbn-ANd9GcS8KIZunLcv13RkP0LdpdeuB_-i-GhU0.png'
+      image: "/images/healingcrystal.jpg"
     },
     {
-      name: 'RAISIN BREAD',
-      category: 'pastries',
+      name: "ivory white white chocolate",
+      category: "chocolate",
       price: 2,
-      description: 'yum',
+      description: "yum yum",
       inventory: 30,
-      image: '/images/5-pain-au-raisins.png'
-    },
-    {
-      name: 'HAM AND CHEESE CROISSANT',
-      category: 'pastries',
-      price: 4,
-      description: 'yum',
-      inventory: 30,
-      image: '/images/1666795.png'
-    },
-    {
-      name: ' 10 CHOUQUETTES',
-      category: 'pastries',
-      price: 3.5,
-      description: 'yum',
-      inventory: 30,
-      image: 'images/Chouquette (2).png'
-    },
-    {
-      name: 'BRIOCHE',
-      category: 'pastries',
-      price: 2.5,
-      description: 'yum',
-      inventory: 30,
-      image: '/images/brioche suisse (1).png'
+      image: "/images/chocolate.jpg"
     }
-  ]
+  ];
 
   const orders = [
     {
@@ -118,7 +92,7 @@ async function seed() {
       userId: 1,
       bought: true
     }
-  ]
+  ];
 
   const productOrders = [
     {
@@ -157,30 +131,30 @@ async function seed() {
       productId: 2,
       orderId: 3
     }
-  ]
+  ];
 
-  await Promise.all(users.map(user => User.create(user)))
-  await Promise.all(products.map(product => Product.create(product)))
-  await Promise.all(orders.map(order => Order.create(order)))
-  await Promise.all(productOrders.map(prodOrd => ProductOrder.create(prodOrd)))
+  await Promise.all(users.map(user => User.create(user)));
+  await Promise.all(products.map(product => Product.create(product)));
+  await Promise.all(orders.map(order => Order.create(order)));
+  await Promise.all(productOrders.map(prodOrd => ProductOrder.create(prodOrd)));
 
-  console.log(`seeded successfully`)
+  console.log(`seeded successfully`);
 }
 
 // We've separated the `seed` function from the `runSeed` function.
 // This way we can isolate the error handling and exit trapping.
 // The `seed` function is concerned only with modifying the database.
 async function runSeed() {
-  console.log('seeding...')
+  console.log("seeding...");
   try {
-    await seed()
+    await seed();
   } catch (err) {
-    console.error(err)
-    process.exitCode = 1
+    console.error(err);
+    process.exitCode = 1;
   } finally {
-    console.log('closing db connection')
-    await db.close()
-    console.log('db connection closed')
+    console.log("closing db connection");
+    await db.close();
+    console.log("db connection closed");
   }
 }
 
@@ -188,8 +162,8 @@ async function runSeed() {
 // `Async` functions always return a promise, so we can use `catch` to handle
 // any errors that might occur inside of `seed`.
 if (module === require.main) {
-  runSeed()
+  runSeed();
 }
 
 // we export the seed function for testing purposes (see `./seed.spec.js`)
-module.exports = seed
+module.exports = seed;

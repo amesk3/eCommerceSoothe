@@ -7,9 +7,9 @@ import {
   Switch
 } from "react-router-dom";
 import PropTypes from "prop-types";
-// import { Homepage, SingleProduct } from "./components";
 import Homepage from "./components/Homepage";
 import SingleProduct from "./components/SingleProduct";
+import ListView from "./components/ListView";
 
 import { me } from "./store";
 
