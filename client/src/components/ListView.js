@@ -28,30 +28,27 @@ export class ListView extends Component {
     }
 
     return (
-      <div>
-        <div className="clearfix" />
-        <div className="container-fluid">
-          <h2 id="categoryTitle">Our {this.props.category}</h2>
+      <div className="clearfix">
+        <h2 id="categoryTitle">Our {this.props.category}</h2>
 
-          <div class="card-columns">
-            <div class="card-deck">
-              {this.props.products.map(product => (
-                <div class="col-md-12 listing block">
-                  <div class="media">
-                    <div class="card">
-                      <i class="fa fa-heart-o" aria-hidden="true" />
+        <div class="card-columns">
+          <div class="card-deck">
+            {this.props.products.map(product => (
+              <div class="dom-product-tile c-product-tile">
+                <div class="urban-modal">
+                  <div class="col-md">
+                    <img
+                      className="card-img-top d-flex align-self-start"
+                      src={product.image}
+                    />
+                  </div>
 
-                      <img
-                        className="card-img-top d-flex align-self-start"
-                        src={product.image}
-                      />
-                      <span>
-                        <i class="product-title" /> {(product.name, " :")}
-                      </span>
-
-                      <span>
-                        <i class="product-price" />${product.price}
-                      </span>
+                  <div class="card-title">
+                    {" "}
+                    {product.name} <div />
+                    <div class="card-text">
+                      {" "}
+                      {product.price} <div />
                       <Link
                         to={`/${this.props.category}/${product.id}`}
                         className="buttonProduct"
@@ -61,8 +58,8 @@ export class ListView extends Component {
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

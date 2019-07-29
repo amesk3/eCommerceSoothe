@@ -81,8 +81,9 @@ a:hover {
 }
 
 .buttonProduct {
-  display: flex;
-  justify-content: flex-start;
+  /* display: flex;
+  justify-content: flex-start; */
+  float: right;
 }
 
 .card-columns {
@@ -92,4 +93,12 @@ a:hover {
 .favbox {
   margin: 2%;
   padding: 2%;
+}
+
+.card-text {
+  float: right;
+}
+
+.card-title {
+  float: right;
 }
