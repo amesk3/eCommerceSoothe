@@ -1,47 +1,23 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { makeStyles } from "@material-ui/core/styles";
-
-import GridList from "@material-ui/core/GridList";
-import GridListTile from "@material-ui/core/GridListTile";
-import GridListTileBar from "@material-ui/core/GridListTileBar";
-import ListSubheader from "@material-ui/core/ListSubheader";
-import IconButton from "@material-ui/core/IconButton";
-import InfoIcon from "@material-ui/icons/Info";
-// import tileData from "./tileData";
-
+import { Link } from "react-router-dom";
 import { fetchProducts } from "../store/productsReducer";
-
-
 
 export class ListView extends Component {
   componentDidMount() {
+    console.log("hitting did mount");
     this.props.fetchProducts(this.props.category);
   }
 
   componentDidUpdate(prevProps) {
+    console.log("hitting did update");
     if (prevProps.category !== this.props.category) {
       this.props.fetchProducts(this.props.category);
     }
   }
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "space-around",
-    overflow: "hidden",
-    backgroundColor: theme.palette.background.paper
-  },
-  gridList: {
-    width: 500,
-    height: 450
-  },
-  icon: {
-    color: "rgba(255, 255, 255, 0.54)"
-  }
-}));
 
   render() {
+    console.log("really render?");
     if (!this.props.products) {
       return (
         <div>
@@ -50,51 +26,24 @@ const useStyles = makeStyles(theme => ({
         </div>
       );
     }
-    const useStyles = makeStyles(theme => ({
-        root: {
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "space-around",
-          overflow: "hidden",
-          backgroundColor: theme.palette.background.paper
-        },
-        gridList: {
-          width: 500,
-          height: 450
-        },
-        icon: {
-          color: "rgba(255, 255, 255, 0.54)"
-        }
-      }));
-    const classes = useStyles();
-    console.log("working until return");
+    console.log("hitting");
     return (
       <div>
         <h2 id="categoryTitle">Our {this.props.category}</h2>
-        <div className={classes.root}>
-          <GridList cellHeight={180} className={classes.gridList}>
-            <GridListTile key="Subheader" cols={2} style={{ height: "auto" }}>
-              <ListSubheader component="div">Products</ListSubheader>
-            </GridListTile>
-            {this.props.products.map(product => (
-              <GridListTile key={product.id}>
-                <img src={product.image} alt={product.name} />
-                <GridListTileBar
-                  title={product.name}
-                  subtitle={<span>price:{product.price}</span>}
-                  actionIcon={
-                    <IconButton
-                      aria-lable={`info about ${product.name}`}
-                      className={classes.icon}
-                    >
-                      <InfoIcon />
-                    </IconButton>
-                  }
-                />
-              </GridListTile>
-            ))}
-          </GridList>
-        </div>
+
+        {this.props.products.map(product => (
+          <div className="one_category" key={product.id}>
+            <img className="imageProduct" src={product.image} />
+            <p className="nameProduct">{product.name}</p>
+            <p className="priceProduct">${product.price} </p>
+            <Link
+              to={`/${this.props.category}/${product.id}`}
+              className="buttonProduct"
+            >
+              Ordering
+            </Link>
+          </div>
+        ))}
       </div>
     );
   }
