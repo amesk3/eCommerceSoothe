@@ -5,12 +5,19 @@
 
 body {
   background: url(../../images/soothebkgr.jpg);
-  background-size: auto;
   background-repeat: no-repeat;
   height: 100vh;
   padding: 0;
   margin: 0;
   width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+h1,
+h2 {
+  display: flex;
+  justify-content: center;
 }
 
 main {
@@ -28,9 +35,8 @@ main {
 }
 
 p {
-  align-items: center;
+  display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .header {
@@ -58,4 +64,32 @@ a:hover {
 #singleProduct {
   width: 300px;
   height: 300px;
+}
+
+.col-sm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-img-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100px;
+}
+
+.buttonProduct {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.card-columns {
+  column-count: 3;
+}
+
+.favbox {
+  margin: 2%;
+  padding: 2%;
 }

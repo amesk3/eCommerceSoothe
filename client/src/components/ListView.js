@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchProducts } from "../store/productsReducer";
+import "../App.css";
 
 export class ListView extends Component {
   componentDidMount() {
@@ -17,7 +18,6 @@ export class ListView extends Component {
   }
 
   render() {
-    console.log("really render?");
     if (!this.props.products) {
       return (
         <div>
@@ -26,24 +26,45 @@ export class ListView extends Component {
         </div>
       );
     }
-    console.log("hitting");
+
     return (
       <div>
-        <h2 id="categoryTitle">Our {this.props.category}</h2>
+        <div className="clearfix" />
+        <div className="container-fluid">
+          <h2 id="categoryTitle">Our {this.props.category}</h2>
 
-        {this.props.products.map(product => (
-          <div className="one_category" key={product.id}>
-            <img className="imageProduct" src={product.image} />
-            <p className="nameProduct">{product.name}</p>
-            <p className="priceProduct">${product.price} </p>
-            <Link
-              to={`/${this.props.category}/${product.id}`}
-              className="buttonProduct"
-            >
-              Ordering
-            </Link>
+          <div class="card-columns">
+            <div class="card-deck">
+              {this.props.products.map(product => (
+                <div class="col-md-12 listing block">
+                  <div class="media">
+                    <div class="card">
+                      <i class="fa fa-heart-o" aria-hidden="true" />
+
+                      <img
+                        className="card-img-top d-flex align-self-start"
+                        src={product.image}
+                      />
+                      <span>
+                        <i class="product-title" /> {(product.name, " :")}
+                      </span>
+
+                      <span>
+                        <i class="product-price" />${product.price}
+                      </span>
+                      <Link
+                        to={`/${this.props.category}/${product.id}`}
+                        className="buttonProduct"
+                      >
+                        Order
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-        ))}
+        </div>
       </div>
     );
   }

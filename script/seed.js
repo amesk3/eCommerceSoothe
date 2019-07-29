@@ -62,6 +62,198 @@ async function seed() {
       image: "/images/healingcrystals.jpg"
     },
     {
+      name: "lovely candle",
+      category: "candles",
+      price: 1.5,
+      description: "roses",
+      inventory: 12,
+      image: "/images/candle.jpg"
+    },
+    {
+      name: "dark as abyss chocolate",
+      category: "chocolate",
+      price: 4,
+      description: "yum",
+      inventory: 12,
+      image: "/images/chocolate.jpg"
+    },
+    {
+      name: "wish crystal",
+      category: "crystals",
+      price: 1,
+      description: "ooh-la-la",
+      inventory: 30,
+      image: "/images/healingcrystals.jpg"
+    },
+    {
+      name: "lovely candle",
+      category: "candles",
+      price: 1.5,
+      description: "roses",
+      inventory: 12,
+      image: "/images/candle.jpg"
+    },
+    {
+      name: "dark as abyss chocolate",
+      category: "chocolate",
+      price: 4,
+      description: "yum",
+      inventory: 12,
+      image: "/images/chocolate.jpg"
+    },
+    {
+      name: "wish crystal",
+      category: "crystals",
+      price: 1,
+      description: "ooh-la-la",
+      inventory: 30,
+      image: "/images/healingcrystals.jpg"
+    },
+    {
+      name: "lovely candle",
+      category: "candles",
+      price: 1.5,
+      description: "roses",
+      inventory: 12,
+      image: "/images/candle.jpg"
+    },
+    {
+      name: "dark as abyss chocolate",
+      category: "chocolate",
+      price: 4,
+      description: "yum",
+      inventory: 12,
+      image: "/images/chocolate.jpg"
+    },
+    {
+      name: "wish crystal",
+      category: "crystals",
+      price: 1,
+      description: "ooh-la-la",
+      inventory: 30,
+      image: "/images/healingcrystals.jpg"
+    },
+    {
+      name: "lovely candle",
+      category: "candles",
+      price: 1.5,
+      description: "roses",
+      inventory: 12,
+      image: "/images/candle.jpg"
+    },
+    {
+      name: "dark as abyss chocolate",
+      category: "chocolate",
+      price: 4,
+      description: "yum",
+      inventory: 12,
+      image: "/images/chocolate.jpg"
+    },
+    {
+      name: "wish crystal",
+      category: "crystals",
+      price: 1,
+      description: "ooh-la-la",
+      inventory: 30,
+      image: "/images/healingcrystals.jpg"
+    },
+    {
+      name: "lovely candle",
+      category: "candles",
+      price: 1.5,
+      description: "roses",
+      inventory: 12,
+      image: "/images/candle.jpg"
+    },
+    {
+      name: "dark as abyss chocolate",
+      category: "chocolate",
+      price: 4,
+      description: "yum",
+      inventory: 12,
+      image: "/images/chocolate.jpg"
+    },
+    {
+      name: "wish crystal",
+      category: "crystals",
+      price: 1,
+      description: "ooh-la-la",
+      inventory: 30,
+      image: "/images/healingcrystals.jpg"
+    },
+    {
+      name: "lovely candle",
+      category: "candles",
+      price: 1.5,
+      description: "roses",
+      inventory: 12,
+      image: "/images/candle.jpg"
+    },
+    {
+      name: "dark as abyss chocolate",
+      category: "chocolate",
+      price: 4,
+      description: "yum",
+      inventory: 12,
+      image: "/images/chocolate.jpg"
+    },
+    {
+      name: "wish crystal",
+      category: "crystals",
+      price: 1,
+      description: "ooh-la-la",
+      inventory: 30,
+      image: "/images/healingcrystals.jpg"
+    },
+    {
+      name: "lovely candle",
+      category: "candles",
+      price: 1.5,
+      description: "roses",
+      inventory: 12,
+      image: "/images/candle.jpg"
+    },
+    {
+      name: "dark as abyss chocolate",
+      category: "chocolate",
+      price: 4,
+      description: "yum",
+      inventory: 12,
+      image: "/images/chocolate.jpg"
+    },
+    {
+      name: "wish crystal",
+      category: "crystals",
+      price: 1,
+      description: "ooh-la-la",
+      inventory: 30,
+      image: "/images/healingcrystals.jpg"
+    },
+    {
+      name: "lovely candle",
+      category: "candles",
+      price: 1.5,
+      description: "roses",
+      inventory: 12,
+      image: "/images/candle.jpg"
+    },
+    {
+      name: "dark as abyss chocolate",
+      category: "chocolate",
+      price: 4,
+      description: "yum",
+      inventory: 12,
+      image: "/images/chocolate.jpg"
+    },
+    {
+      name: "wish crystal",
+      category: "crystals",
+      price: 1,
+      description: "ooh-la-la",
+      inventory: 30,
+      image: "/images/healingcrystals.jpg"
+    },
+    {
       name: "love and joy crystal",
       category: "crystals",
       price: 1.3,
