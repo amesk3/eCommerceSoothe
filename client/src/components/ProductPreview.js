@@ -5,7 +5,7 @@ const ProductPreview = props => {
     return <div>loading...</div>;
   }
   return (
-    <div classname="product-preview-div">
+    <div class="product-preview-div">
       <div key={props.selectedProduct.id}>
         <h5>
           <i>{props.selectedProduct.category}</i> > {props.selectedProduct.name}

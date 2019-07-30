@@ -122,14 +122,11 @@ a:hover {
 .categoryTitle {
   margin: 3%;
 }
-/* 
-.container-product-preview {
-  column-count: 3;
-} */
 
 .product-preview-div {
   display: flex;
   justify-content: center;
   align-items: space-between;
   background-color: white;
+  padding: 10%;
 }

@@ -11,20 +11,24 @@ const HomePage = () => {
       <div className="homeCategories">
         <div>
           <Link to="/chocolate">
-            <img src="/images/chocolate.jpg" width="300" height="300" />
-            <p>Chocolate</p>
+            <img src="/images/chocolate.jpg" width="300px" height="250px" />
+            <h5>Chocolate</h5>
           </Link>
         </div>
         <div>
           <Link to="/candles">
-            <img src="/images/candle.jpg" width="300" height="300" />
-            <p>Candles</p>
+            <img src="/images/candle.jpg" width="250px" height="250px" />
+            <h5>Candles</h5>
           </Link>
         </div>
         <div>
           <Link to="/crystals">
-            <img src="/images/healingcrystals.jpg" width="300" height="300" />
-            <p>Crystals</p>
+            <img
+              src="/images/healingcrystals.jpg"
+              width="250px"
+              height="250px"
+            />
+            <h5>Crystals</h5>
           </Link>
         </div>
       </div>
