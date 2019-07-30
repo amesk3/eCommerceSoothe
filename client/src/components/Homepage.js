@@ -6,7 +6,7 @@ const HomePage = () => {
   return (
     <div>
       <div>
-        <h1 className="header">OUR PRODUCTS</h1>
+        <h1 className="header">Our products</h1>
       </div>
       <div className="homeCategories">
         <div>
