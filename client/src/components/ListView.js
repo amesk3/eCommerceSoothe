@@ -28,34 +28,27 @@ export class ListView extends Component {
     }
 
     return (
-      <div className="clearfix">
-        <h2 id="categoryTitle">Our {this.props.category}</h2>
+      <div>
+        <div class="container-fluid">
+          <h2 id="categoryTitle">Our {this.props.category}</h2>
+        </div>
 
-        <div class="card-columns">
+        <div class="card-row">
           <div class="card-deck">
             {this.props.products.map(product => (
               <div class="dom-product-tile c-product-tile">
                 <div class="urban-modal">
                   <div class="col-md">
-                    <img
-                      className="card-img-top d-flex align-self-start"
-                      src={product.image}
-                    />
-                  </div>
-
-                  <div class="card-title">
-                    {" "}
-                    {product.name} <div />
-                    <div class="card-text">
-                      {" "}
-                      {product.price} <div />
+                    <img className="card-img-top " src={product.image} />
+                    <h5 class="card-title">
                       <Link
                         to={`/${this.props.category}/${product.id}`}
                         className="buttonProduct"
                       >
-                        Order
+                        <span>{product.name} </span>
                       </Link>
-                    </div>
+                    </h5>
+                    <h5>${product.price} </h5>
                   </div>
                 </div>
               </div>
