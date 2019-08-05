@@ -146,7 +146,7 @@ export default function PersistentDrawerLeft() {
         </List>
         <List />
         <List>
-          {["about", "what is self-care"].map((text, index) => (
+          {["about"].map((text, index) => (
             <Link to={`/${text}`}>
               <ListItem button key={text}>
                 <ListItemIcon>{"+"}</ListItemIcon>
