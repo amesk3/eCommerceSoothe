@@ -17,7 +17,7 @@ body {
 h1,
 h2 {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 main {
@@ -66,22 +66,30 @@ a:hover {
   height: 300px;
 }
 
-.col-sm {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .card-img-top {
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
   height: 50%;
   width: 50%;
 }
 
-.card-columns {
-  column-count: 3;
+.flex-grid {
+  display: flex;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.col-sm {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
+.container-fluid {
+  align: center;
 }
 
 .favbox {
@@ -89,7 +97,7 @@ a:hover {
   padding: 2%;
 }
 
-.card-title {
+.title {
   float: right;
   background: white;
 }
@@ -102,7 +110,7 @@ a:hover {
   justify-content: center;
 }
 
-.col-md {
+.col-sm {
   background: white;
 
   margin: 4%;

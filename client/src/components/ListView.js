@@ -26,34 +26,46 @@ export class ListView extends Component {
         </div>
       );
     }
+    let group = [];
+    for (let i = 0; i < this.props.products.length; i++) {
+      let count = 0;
+      let newArr = [];
+      while (count < 4) {
+        newArr.push(this.props.products[i]);
+        count++;
+      }
+      count = 0;
+      group.push(newArr);
+      newArr = [];
+    }
 
     return (
       <div>
-        <div class="container-fluid">
-          <h2 id="categoryTitle">Our {this.props.category}</h2>
-        </div>
+        <h2 id="categoryTitle">Our {this.props.category}</h2>
 
-        <div class="card-row">
-          <div class="card-deck">
-            {this.props.products.map(product => (
-              <div class="dom-product-tile c-product-tile">
-                <div class="urban-modal">
-                  <div class="col-md">
-                    <img className="card-img-top " src={product.image} />
-                    <h5 class="card-title">
-                      <Link
-                        to={`/${this.props.category}/${product.id}`}
-                        className="buttonProduct"
-                      >
-                        <span>{product.name} </span>
-                      </Link>
-                    </h5>
-                    <h5>${product.price} </h5>
-                  </div>
+        <div className="container-fluid">
+          {/* <div className="row"> */}
+
+          {group.map(itemGroup => (
+            <div className="row">
+              {itemGroup.map(product => (
+                // <div class="dom-product-tile c-product-tile">
+                //   <div class="urban-modal">
+                <div class="col-sm-3">
+                  <img className="card-img-top " src={product.image} />
+                  <h5 class="title">
+                    <Link
+                      to={`/${this.props.category}/${product.id}`}
+                      className="buttonProduct"
+                    >
+                      <span>{product.name} </span>
+                    </Link>
+                  </h5>
+                  <h5>${product.price} </h5>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ))}
         </div>
       </div>
     );

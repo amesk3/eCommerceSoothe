@@ -5,6 +5,7 @@ import "../App.css";
 const HomePage = () => {
   return (
     <div>
+      <img className="beachpic" src="/images/beach-cliff.jpg" />
       <div>
         <h1 className="header">Our products</h1>
       </div>
