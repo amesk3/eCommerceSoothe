@@ -25,6 +25,7 @@
     "grunt": "^1.0.4",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "material-ui": "^0.20.2",
     "material-ui-icons": "^1.0.0-beta.36",
     "morgan": "^1.9.1",
     "nodemon": "^1.19.1",

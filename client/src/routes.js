@@ -11,6 +11,8 @@ import Homepage from "./components/Homepage";
 import SingleProduct from "./components/SingleProduct";
 import ListView from "./components/ListView";
 
+import About from "./components/About";
+
 import { me } from "./store";
 
 /**
@@ -32,6 +34,7 @@ class Routes extends Component {
       <Switch>
         {/* Routes placed here are available to all visitors */}
         <Route exact path="/" component={Homepage} />
+        <Route exact path="/about" component={About} />
 
         <Route
           exact

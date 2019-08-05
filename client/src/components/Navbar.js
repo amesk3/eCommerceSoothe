@@ -110,9 +110,9 @@ export default function PersistentDrawerLeft() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h4" noWrap>
+          <h4 variant="h4" noWrap>
             Soothe
-          </Typography>
+          </h4>
         </Toolbar>
       </AppBar>
       <Drawer
