@@ -16,6 +16,11 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import { Link } from "react-router-dom";
+import Button from "@material-ui/core/Button";
+
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { logout } from "../store";
 
 const drawerWidth = 300;
 
@@ -43,6 +48,7 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(2),
     color: "black"
   },
+
   hide: {
     display: "none"
   },
@@ -78,7 +84,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function PersistentDrawerLeft() {
+function Navbar({ handleClick, isLoggedIn, user }) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -113,6 +119,33 @@ export default function PersistentDrawerLeft() {
           <h4 variant="h4" noWrap>
             Soothe
           </h4>
+          {user.id ? (
+            <Button
+              color="inherit"
+              style={{ marginLeft: "70%" }}
+              onClick={handleClick}
+            >
+              Logout
+            </Button>
+          ) : (
+            <Button color="inherit" style={{ marginLeft: "70%" }}>
+              <Link to="/login">LOGIN</Link>
+            </Button>
+          )}
+          {!user.id && (
+            <Button color="inherit">
+              <Link to="/signup">SIGN UP </Link>
+            </Button>
+          )}
+          {user.id && (
+            <Button color="inherit">
+              <Link to="/myaccount">MY ACCOUNT</Link>
+            </Button>
+          )}
+
+          <Button color="inherit">
+            <i class="material-icons">shopping_basket</i>
+          </Button>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -180,3 +213,28 @@ export default function PersistentDrawerLeft() {
     </div>
   );
 }
+
+const mapState = state => {
+  return {
+    isLoggedIn: !!state.userReducer.id,
+    user: state.userReducer.user
+  };
+};
+
+const mapDispatch = dispatch => {
+  return {
+    handleClick() {
+      dispatch(logout());
+    }
+  };
+};
+
+export default connect(
+  mapState,
+  mapDispatch
+)(Navbar);
+
+Navbar.propTypes = {
+  handleClick: PropTypes.func.isRequired,
+  isLoggedIn: PropTypes.bool.isRequired
+};
