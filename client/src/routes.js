@@ -7,11 +7,19 @@ import {
   Switch
 } from "react-router-dom";
 import PropTypes from "prop-types";
-import Homepage from "./components/Homepage";
-import SingleProduct from "./components/SingleProduct";
-import ListView from "./components/ListView";
 
-import About from "./components/About";
+import {
+  About,
+  ListView,
+  SingleProduct,
+  Homepage,
+  Login,
+  Signup,
+  Cart,
+  Thanks,
+  UserHome,
+  MyAccount
+} from "./components";
 
 import { me } from "./store";
 
@@ -35,6 +43,11 @@ class Routes extends Component {
         {/* Routes placed here are available to all visitors */}
         <Route exact path="/" component={Homepage} />
         <Route exact path="/about" component={About} />
+        <Route path="/login" component={Login} />
+        <Route path="/signup" component={Signup} />
+        <Route exact path="/cart" component={Cart} />
+        <Route path="/thanks" component={Thanks} />
+        <Route path="/myaccount" component={MyAccount} />
 
         <Route
           exact
@@ -56,12 +69,11 @@ class Routes extends Component {
         />
         <Route path="/pastries/:id" component={SingleProduct} />
 
-        {/* {isLoggedIn && (
+        {isLoggedIn && (
           <Switch>
-            
             <Route path="/home" component={UserHome} />
           </Switch>
-        )} */}
+        )}
       </Switch>
     );
   }
