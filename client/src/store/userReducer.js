@@ -1,5 +1,5 @@
 import axios from "axios";
-// import history from '../history'
+import history from "../history";
 
 /**
  * ACTION TYPES
@@ -36,7 +36,7 @@ const updateQuantity = updatedProduct => ({
 });
 const deleteProduct = id => ({ type: DELETE_PRODUCT, id });
 const checkout = newOrderId => ({ type: CHECKOUT, newOrderId });
-// const getOrderHistory = orders => ({ type: GET_ORDER_HISTORY, orders });
+const getOrderHistory = orders => ({ type: GET_ORDER_HISTORY, orders });
 
 /**
  * THUNK CREATORS
@@ -99,6 +99,7 @@ export const combineCarts = orderId => async dispatch => {
           } else {
             // if localCart item is not already in userCart item
             // put localCart item in ProductOrder join table as new row
+            console.log("hit else product post");
             await axios.post("/api/productorder", {
               orderId,
               productId: localItem.productId,
@@ -158,16 +159,16 @@ export const checkoutThunk = userId => async dispatch => {
   }
 };
 
-// export const fetchOrderHistory = userId => async dispatch => {
-//   try {
-//     const res = await axios.get(`/api/orders/${userId}/history`);
-//     const orderHistory = res.data;
-//     const action = getOrderHistory(orderHistory);
-//     dispatch(action);
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
+export const fetchOrderHistory = userId => async dispatch => {
+  try {
+    const res = await axios.get(`/api/orders/${userId}/history`);
+    const orderHistory = res.data;
+    const action = getOrderHistory(orderHistory);
+    dispatch(action);
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 export const me = () => async dispatch => {
   try {

@@ -144,7 +144,9 @@ function Navbar({ handleClick, isLoggedIn, user }) {
           )}
 
           <Button color="inherit">
-            <i class="material-icons">shopping_basket</i>
+            <Link to="/cart">
+              <i class="material-icons">shopping_basket</i>
+            </Link>
           </Button>
         </Toolbar>
       </AppBar>
@@ -206,9 +208,6 @@ function Navbar({ handleClick, isLoggedIn, user }) {
         })}
       >
         <div className={classes.drawerHeader} />
-        <Typography paragraph>
-          Welcome to Soothe! Soothe is a website dedicated to self-care.
-        </Typography>
       </main>
     </div>
   );

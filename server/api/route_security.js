@@ -1,4 +1,4 @@
-// const {User, Order, ProductOrder} = require('../db/models')
+// const { User, Order, ProductOrder } = require("../db/models");
 
 // admin authentication middleware - if the person is an admin, let them view all users, if not, redirect to our homepage - if someone is not an admin, they should only be able to see their own user information
 function isAdmin(req, res, next) {
@@ -14,8 +14,11 @@ function isAdminOrUser(req, res, next) {
 
 //middleware to check if a person is logged in before loading orders/cart
 const isLoggedInUser = (req, res, next) => {
-  if (req.user.id === req.body.id) next();
-  res.redirect("/");
+  if (req.user.id === req.body.id) {
+    next();
+  } else {
+    res.redirect("/");
+  }
 };
 
 module.exports = {

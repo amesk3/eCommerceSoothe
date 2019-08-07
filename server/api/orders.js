@@ -17,21 +17,21 @@ router.get("/:userId", async (req, res, next) => {
   }
 });
 
-// router.get('/:userId/history', async (req, res, next) => {
-//   try {
-//     const userId = req.params.userId
-//     const pastOrders = await Order.findAll({
-//       where: {
-//         userId: req.user.id,
-//         bought: true
-//       },
-//       include: [{model: Product}]
-//     })
-//     res.status(200).json(pastOrders)
-//   } catch (error) {
-//     next(error)
-//   }
-// })
+router.get("/:userId/history", async (req, res, next) => {
+  try {
+    const userId = req.params.userId;
+    const pastOrders = await Order.findAll({
+      where: {
+        userId: req.user.id,
+        bought: true
+      },
+      include: [{ model: Product }]
+    });
+    res.status(200).json(pastOrders);
+  } catch (error) {
+    next(error);
+  }
+});
 
 router.post("/", async (req, res, next) => {
   try {

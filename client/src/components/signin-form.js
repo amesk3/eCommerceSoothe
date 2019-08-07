@@ -12,32 +12,49 @@ class AuthForm extends Component {
     return (
       <div className="signIn">
         <h2>PLEASE SIGN IN</h2>
-        <form onSubmit={handleSubmit} name={name}>
-          <div className="case">
-            <label htmlFor="email">
-              <small>Email</small>
-            </label>
-            <input name="email" type="text" />
+
+        <form
+          onSubmit={handleSubmit}
+          name={name}
+          className="form-white-background"
+        >
+          <div className="form-group">
+            <label htmlFor="emailInput">Email</label>
+            <input
+              name="email"
+              type="email"
+              className="form-control"
+              id="emailInput"
+              aria-describedby="emailHelp"
+              placeholder="Enter email"
+            />
+            <small id="emailHelp" class="form-text text-muted">
+              We'll never share your email with anyone else.
+            </small>
           </div>
           <br />
-          <div className="case">
-            <label htmlFor="password">
-              <small>Password</small>
-            </label>
-            <input name="password" type="password" />
+          <div className="form-group">
+            <label htmlFor="passwordInput">Password</label>
+            <input
+              name="password"
+              type="password"
+              className="form-control"
+              id="passwordInput"
+              placeholder="Password"
+            />
           </div>
           <br />
 
           <div>
-            <button className="clickHere" type="submit">
+            <button className="btn btn-primary" type="submit">
               {displayName}
             </button>
           </div>
+          <a className="google" href="/auth/google">
+            {displayName} with Google
+          </a>
           {error && error.response && <div> {error.response.data} </div>}
         </form>
-        <a className="google" href="/auth/google">
-          {displayName} with Google
-        </a>
       </div>
     );
   }
