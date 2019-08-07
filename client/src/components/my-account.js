@@ -33,48 +33,64 @@ class MyAccount extends Component {
     return (
       <div>
         <h3>Welcome {this.props.user.firstName}!</h3>
-        <br />
-        Profile Information:
-        <p>
-          <br />
-          Name: {this.props.user.firstName} {this.props.user.lastName}
-          <br />
-          Email: {this.props.user.email}
-          <br />
-          Billing Address: {this.props.user.billingAddress}
-          <br />
-          Shipping Address: {this.props.user.shippingAddress}
-        </p>
-        <div>
-          <h3>My Order History: </h3>
-          <hr />
-          {this.props.orders ? (
-            this.props.orders.map(order => {
-              let total = 0;
-              return (
-                <div key={order.id} style={{ marginLeft: "10px" }}>
-                  <p>Order ID: {order.id} </p>
-                  <p>Items ordered:</p>
-                  {order.products.map(product => {
-                    total += Number(product.price);
-                    return (
-                      <div key={product.id}>
-                        <p>
-                          {" "}
-                          {product.name} - Quantity:{" "}
-                          {product.product_order.quantity} - Price:{" "}
-                          {product.price}{" "}
-                        </p>
-                      </div>
-                    );
-                  })}
-                  <h4>Total: {total}</h4>
-                </div>
-              );
-            })
-          ) : (
-            <p>No orders...</p>
-          )}
+        <div className="row">
+          <div className="col-sm">
+            <h4>Profile Information:</h4>
+            <h6>
+              <br />
+              Name:{" "}
+              <p>
+                {this.props.user.firstName} {this.props.user.lastName}
+              </p>
+              <br />
+              Email: <p>{this.props.user.email}</p>
+              <br />
+              Billing Address: <p>{this.props.user.billingAddress}</p>
+              <br />
+              Shipping Address: <p>{this.props.user.shippingAddress}</p>
+            </h6>
+            <div />
+          </div>
+          <div className="col-sm">
+            <h4>My Order History: </h4>
+            <hr />
+
+            {this.props.orders ? (
+              this.props.orders.map(order => {
+                let total = 0;
+                return (
+                  <div key={order.id}>
+                    <h6>Order ID: {order.id} </h6>
+                    <h5>Items ordered:</h5>
+                    <div class="card w-75">
+                      {order.products.map((product, index) => {
+                        total += Number(product.price);
+                        return (
+                          <div class="card-body">
+                            <div key={product.id}>
+                              <h6 class="card-title">Item {index + 1}</h6>
+                              <img
+                                src={product.image}
+                                style={{ maxWidth: "200px" }}
+                              />
+                              <p class="card-text">Name: {product.name} </p>
+                              <p class="card-text">
+                                Quantity: {product.product_order.quantity}
+                              </p>
+                              <p class="card-text">Price:$ {product.price} </p>
+                            </div>
+                          </div>
+                        );
+                      })}
+                      <h4>Total: ${total}</h4>
+                    </div>
+                  </div>
+                );
+              })
+            ) : (
+              <p>No orders...</p>
+            )}
+          </div>
         </div>
       </div>
     );
