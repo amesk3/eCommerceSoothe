@@ -93,6 +93,7 @@ class Cart extends Component {
   render() {
     return (
       <div>
+        <h3>Your saved items</h3>
         <CartItems
           {...this.state}
           handleDelete={id => this.handleDelete(id)}

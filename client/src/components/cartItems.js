@@ -1,24 +1,16 @@
 import React from "react";
 
-const keygen = (function() {
-  let i = 0;
-  return () => {
-    i++;
-    return i;
-  };
-})();
-
 const CartItems = props => {
   return (
     <div>
       {props.cart.length ? (
-        props.cart.map(item => {
+        props.cart.map((item, keygen) => {
           return (
-            <div key={keygen()}>
-              <img src={item.product.image} style={{ width: "50px" }} />
-              <br /> {item.product.name}
-              <br /> Quantity: {item.quantity}
-              <form>
+            <div key={keygen}>
+              <form className="form-cart-item">
+                <img src={item.product.image} style={{ width: "100px" }} />
+                <br /> Name: {item.product.name}
+                <br /> Quantity: {item.quantity}
                 <label>
                   CHANGE QUANTITY
                   <input

@@ -196,3 +196,7 @@ form {
 .container {
   background: white;
 }
+
+.form-cart-item {
+  padding: 10%;
+}
