@@ -10,24 +10,28 @@ const ProductPreview = props => {
         <h5>
           <i>{props.selectedProduct.category}</i> > {props.selectedProduct.name}
         </h5>
-        <div class="container-product-preview">
-          <div class="col">
-            <div class="row">
-              <img src={props.selectedProduct.image} style={{ width: "50%" }} />
+        <div class="container">
+          <div class="row">
+            <div class="col-sm">
+              <img
+                src={props.selectedProduct.image}
+                class="rounded"
+                style={{ width: "100%" }}
+              />
             </div>
-            <div class="row">
+            <div class="col-sm">
               <h5>Price: ${props.selectedProduct.price}</h5>
-              <h5>{props.selectedProduct.description}</h5>
+              <h5>Description: {props.selectedProduct.description}</h5>
               <form onSubmit={props.handleSubmit}>
                 <h5>
                   Quantity
                   <input
-                    style={{ width: "20%" }}
+                    style={{ width: "100%" }}
                     type="number"
                     name="quantity"
                     value={props.state.quantity}
                     onChange={props.handleChange}
-                    min="1"
+                    min="100"
                   />
                 </h5>
 
@@ -39,25 +43,25 @@ const ProductPreview = props => {
                 )}
               </form>
             </div>
-            <div className="row">
-              <h5>Product Description</h5>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-            </div>
+          </div>
+          <div className="row">
+            <h5>About the ingredients</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
           </div>
         </div>
       </div>
