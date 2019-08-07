@@ -31,7 +31,7 @@ const ProductPreview = props => {
                     name="quantity"
                     value={props.state.quantity}
                     onChange={props.handleChange}
-                    min="100"
+                    min="1"
                   />
                 </h5>
 
