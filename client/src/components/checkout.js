@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Submit from "./submit.js";
 import {
   fetchCart,
   checkoutThunk,
@@ -64,7 +65,8 @@ class Checkout extends Component {
 
   render() {
     return (
-      <div>
+      <div className="form-checkout">
+        <h3>Your self care items for today:</h3>
         {this.props.cart.map(item => (
           <div key={item.id}>
             <p>Name of Product: {item.product.name}</p>
@@ -74,19 +76,18 @@ class Checkout extends Component {
           </div>
         ))}
         <div>
-          <h2>
+          <h5>
             Total Amount Due : $
             {this.props.cart.reduce((total, item) => {
               total += item.quantity * parseFloat(item.product.price);
               return total;
             }, 0)}
-          </h2>
+          </h5>
         </div>
 
-        <h2>Payment and Billing Information</h2>
-        <form onSubmit={this.handleSubmit}>
-          <br />
-          Shipping Address :
+        <h4>Payment and Billing Information</h4>
+        <form onSubmit={this.handleSubmit} className="form-group">
+          {/* <label htmlFor="text"> Shipping Address :</label>
           <input
             name="shippingAddress"
             type="text"
@@ -94,20 +95,27 @@ class Checkout extends Component {
             onChange={this.handleChange}
             required={true}
           />
-          <br />
-          Billing Address :
+          <label htmlFor="text"> Billing Address :</label>
           <input
             name="billingAddress"
             type="text"
             value={this.state.billingAddress}
             onChange={this.handleChange}
             required={true}
+          /> */}
+          <Submit
+            name={"Confirm purchase"}
+            description={
+              "This is only a test page, enter 4242 4242 4242 4242 for credit card"
+            }
+            amount={this.props.cart
+              .map(el => el.price * el.quantity)
+              .reduce((a, b) => a + b, 0)}
+            // successPayment={successPayment}
           />
           <br />
-          <button type="submit" className="checkout">
-            Submit
-          </button>
-          {this.state.noItems && <h1>Cart is empty!</h1>}
+
+          {this.state.noItems && <h3>Cart is empty!</h3>}
         </form>
       </div>
     );
@@ -122,7 +130,11 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   fetchCart: userId => dispatch(fetchCart(userId)),
   checkoutThunk: userId => dispatch(checkoutThunk(userId)),
-  updateUserThunk: user => dispatch(updateUserThunk(user))
+  updateUserThunk: user => dispatch(updateUserThunk(user)),
+  successPayment() {
+    alert("Payment Successful");
+    dispatch(clearCart());
+  }
 });
 
 export default connect(

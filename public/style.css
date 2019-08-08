@@ -65,6 +65,8 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
 }
 
 a {
@@ -108,6 +110,11 @@ h2 {
 }
 
 form {
+  background: white;
+  padding: 30%;
+}
+
+.form-checkout {
   background: white;
   padding: 30%;
 }
@@ -199,4 +206,17 @@ form {
 
 .form-cart-item {
   padding: 10%;
+}
+
+.homepage-paragraph {
+  padding: 30%;
+  padding-top: 5%;
+  padding-bottom: 10%;
+}
+
+.homepage-paragraph-header {
+  padding-top: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
