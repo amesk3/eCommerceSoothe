@@ -85,7 +85,7 @@ class Checkout extends Component {
           </h5>
         </div>
 
-        <h4>Payment and Billing Information</h4>
+        <h4>Payment</h4>
         <form onSubmit={this.handleSubmit} className="form-group">
           {/* <label htmlFor="text"> Shipping Address :</label>
           <input
@@ -111,7 +111,6 @@ class Checkout extends Component {
             amount={this.props.cart
               .map(el => el.price * el.quantity)
               .reduce((a, b) => a + b, 0)}
-            // successPayment={successPayment}
           />
           <br />
 
@@ -130,11 +129,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   fetchCart: userId => dispatch(fetchCart(userId)),
   checkoutThunk: userId => dispatch(checkoutThunk(userId)),
-  updateUserThunk: user => dispatch(updateUserThunk(user)),
-  successPayment() {
-    alert("Payment Successful");
-    dispatch(clearCart());
-  }
+  updateUserThunk: user => dispatch(updateUserThunk(user))
 });
 
 export default connect(
