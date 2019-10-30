@@ -42,7 +42,7 @@
     "react-stripe-checkout": "^2.6.3",
     "redux-genie": "^2.0.0",
     "redux-logger": "^3.0.6",
-    "sequelize": "^5.10.1",
+    "sequelize": "^5.15.1",
     "socket.io": "^2.2.0",
     "stripe": "^7.6.0"
   },
