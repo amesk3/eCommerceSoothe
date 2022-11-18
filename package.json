@@ -24,7 +24,7 @@
     "express-session": "^1.16.2",
     "grunt": "^1.0.4",
     "html-loader": "^0.5.5",
-    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-plugin": "^5.5.0",
     "material-design-icons": "^3.0.1",
     "material-ui": "^0.20.2",
     "material-ui-icons": "^1.0.0-beta.36",
